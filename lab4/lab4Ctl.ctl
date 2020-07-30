@@ -1,5 +1,0 @@
-LOAD DATA
-INFILE 'loader.dat'
-INTO TABLE lab4
-FIELDS TERMINATED BY ','
-(d DATE "DD-MM-YYYY" , t "HH:MM:SS")
