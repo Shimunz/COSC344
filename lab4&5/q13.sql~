@@ -1,0 +1,1 @@
+SELECT amt, snum FROM orders WHERE amt > 3000;

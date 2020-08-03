@@ -1,0 +1,1 @@
+SELECT fname FROM employee JOIN works_on ON essn=ssn WHERE hours < 18;
