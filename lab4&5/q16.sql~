@@ -1,0 +1,1 @@
+SELECT cname FROM customers, orders WHERE customers.cnum IN (SELECT orders.cnum FROM orders WHERE MAX(amt);
