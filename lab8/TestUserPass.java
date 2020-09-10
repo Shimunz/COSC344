@@ -13,15 +13,15 @@ import java.util.*;
  */
 
 public class TestUserPass {
-
+    
     public static void main (String[] args) {
-
+        
         // Code similar th these 3 lines are required
         // to use UserPass.
         UserPass x = new UserPass();
         String user = x.getUserName();
         String pass = x.getPassWord();
-
+        
         // Make sure the file format is correct.
         System.out.println("x" + user + "x");
         System.out.println("x" + pass + "x");

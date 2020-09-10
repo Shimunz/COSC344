@@ -1,1 +1,1 @@
-SELECT cname, amt FROM customers, orders WHERE customers.cnum = (SELECT orders.cnum FROM orders WHERE amt = MAX(AMT));
+SELECT * FROM orders WHERE amt > ALL(SELECT AVG(amt) FROM orders WHERE odate = TO_DATE('03-10-1990', 'DD-MM-YYYY'));
