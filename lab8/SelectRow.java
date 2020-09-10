@@ -8,17 +8,18 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class TestLogin {
+public class SelectRow {
 
 
     public static void main (String[] args) {
-        new TestLogin().go();
+        new SelectRow().go();
     }
 
     // This is the function that does all the work
     private void go() {
 
         // Read pass.dat
+        String sql = "SELECT * FROM department WHERE mgrssn = '333445555'";
         UserPass login = new UserPass();
         String user = login.getUserName();
         String pass = login.getPassWord();
@@ -33,6 +34,15 @@ public class TestLogin {
             System.out.println("url: " + url);
             con = DriverManager.getConnection(url, user, pass);
             System.out.println("Connected to Oracle");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                System.out.println(rs.getString("dname") + "\t" +
+                                   rs.getString("dnumber") + "\t" +
+                                   rs.getString("mgrssn") + "\t" +
+                                   rs.getString("mgrstartdate"));
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.exit(1);

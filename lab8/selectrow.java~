@@ -8,11 +8,11 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class TestLogin {
+public class selectrow {
 
 
     public static void main (String[] args) {
-        new TestLogin().go();
+        new selectrow().go();
     }
 
     // This is the function that does all the work

@@ -8,17 +8,19 @@ import java.io.*;
 import java.util.*;
 import java.sql.*;
 
-public class TestLogin {
+public class Salary {
 
 
     public static void main (String[] args) {
-        new TestLogin().go();
+        new Salary().go();
     }
 
     // This is the function that does all the work
     private void go() {
 
         // Read pass.dat
+	String update = "UPDATE employee SET salary = salary * 1.1";
+	String sql = "SELECT * FROM employee";
         UserPass login = new UserPass();
         String user = login.getUserName();
         String pass = login.getPassWord();
@@ -32,8 +34,23 @@ public class TestLogin {
             String url = "jdbc:oracle:thin:@" + host + ":1527:cosc344";
             System.out.println("url: " + url);
             con = DriverManager.getConnection(url, user, pass);
-            System.out.println("Connected to Oracle");
-        } catch (SQLException e) {
+            System.out.println("Connected to Oracle");	    
+	    Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+	    while (rs.next()) {
+                System.out.println(rs.getString("fname") + "\t" +
+                                   rs.getString("lname") + "\t" +
+                                   rs.getString("salary"));
+            }
+            ResultSet rss = stmt.executeQuery(update);
+	    rs = stmt.executeQuery(sql);
+	    System.out.println("\n Updating \n");
+	    while (rs.next()) {
+                System.out.println(rs.getString("fname") + "\t" +
+                                   rs.getString("lname") + "\t" +
+                                   rs.getString("salary"));
+            }
+	} catch (SQLException e) {
             System.out.println(e.getMessage());
             System.exit(1);
 
