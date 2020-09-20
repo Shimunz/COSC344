@@ -1,6 +1,6 @@
 SET SERVEROUTPUT ON; 
 CREATE OR REPLACE 
-PROCEDURE listDependent
+PROCEDURE Dependents
 AS 
     CURSOR dc IS 
         SELECT * FROM dependent;
