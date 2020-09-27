@@ -1,1 +1,0 @@
-SELECT cname FROM customers JOIN orders ON CNUM=CNUM WHERE amt BETWEEN 1500 AND 5000;

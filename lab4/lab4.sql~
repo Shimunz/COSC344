@@ -1,7 +1,0 @@
-DROP TABLE lab4;
-
-CREATE TABLE lab4
-       (d date,
-       t time);
-
-COMMIT;
